@@ -1,0 +1,33 @@
+{
+  "name": "pos-backend",
+  "version": "1.0.0",
+  "description": "This is backend code for the point of sale application (POS) for retail store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mani254/pos-backend.git"
+  },
+  "keywords": [
+    "pos",
+    "point",
+    "of",
+    "sale",
+    "retails",
+    "store"
+  ],
+  "author": "sai manikanta mamidi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mani254/pos-backend/issues"
+  },
+  "homepage": "https://github.com/mani254/pos-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3",
+    "nodemon": "^3.0.2"
+  }
+}
