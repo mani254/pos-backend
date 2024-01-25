@@ -4,7 +4,8 @@
   "description": "This is backend code for the point of sale application (POS) for retail store",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,9 @@
   },
   "homepage": "https://github.com/mani254/pos-backend#readme",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.3",
     "nodemon": "^3.0.2"
