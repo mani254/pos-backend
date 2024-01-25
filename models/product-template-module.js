@@ -15,3 +15,5 @@ const templateSchema=new mongoose.Schema({
 })
 
 const templateData = mongoose.model('Product Template', templateSchema, 'product template');
+
+module.exports=templateData

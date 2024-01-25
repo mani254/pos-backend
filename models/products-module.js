@@ -65,3 +65,5 @@ const productSchema=mongoose.Schema({
 })
 
 const productsData=mongoose.model('Products',productSchema,'products')
+
+module.exports=productsData

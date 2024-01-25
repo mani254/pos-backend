@@ -8,7 +8,7 @@ const bodyparser=require('bodyparser')
 const app=express();
 dotenv.config()
 
-mongoose.connect('mongodb+srv://manikanta:manikanta123@cluster0.0t91iex.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=>{
     console.log('connected to Database successfully')
 })

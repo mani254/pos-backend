@@ -32,3 +32,5 @@ const staffSchema= new mongoose.Schema({
 })
 
 const staffData= mongoose.model('Staff',staffSchema,"staff")
+
+module.exports=staffData
