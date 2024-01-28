@@ -2,7 +2,9 @@ const express=require('express');
 const mongoose=require('mongoose');
 const dotenv=require('dotenv')
 const cors=require('cors')
-const bodyparser=require('bodyparser')
+const bodyparser=require('body-parser')
+const cookieParser=require('cookie-parser')
+
 //folder imports 
 
 const app=express();
@@ -16,9 +18,13 @@ mongoose.connect(process.env.MONGODB_URI)
     console.log(err.message)
 });
 
+
 //middleware
-app.use(cors({credentials:true,origin:'http://localhost:3000/pos-backend'}))
+app.use(cors({credentials:true,origin:process.env.FRONTEND_URI}))
+
 app.use(bodyparser.urlencoded({ extended: true }))
+app.use(bodyparser.json())
+app.use(cookieParser())
 
 
 
@@ -30,13 +36,13 @@ app.use('/product',require('./routes/productRoutes.js'))
 app.use('/staff',require('./routes/staffRoutes.js'))
 app.use('/producttemplate',require('./routes/productTemplateRoutes.js'))
 app.use('/order',require('./routes/orderRoutes.js'))
-app.use('/branch',require('/routes/branchRoutes.js'))
+app.use('/branch',require('./routes/branchRoutes.js'))
 
 
 
 
 //listening to port
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT,()=>{console.log(`listening on port ${PORT}`)})

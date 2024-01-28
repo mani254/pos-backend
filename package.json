@@ -27,9 +27,11 @@
   "homepage": "https://github.com/mani254/pos-backend#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
+    "jwt-token": "^1.0.9",
     "mongoose": "^8.0.3",
     "nodemon": "^3.0.2"
   }

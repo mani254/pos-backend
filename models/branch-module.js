@@ -22,9 +22,18 @@ const branchSchema= new mongoose.Schema({
             return name.toLowerCase()
         },
         required:true,
-        unique:true,
         minlength: 2, 
         maxlength: 30 
+    },
+    admin:{
+        username:{
+            type:String,
+            required:true,
+        },
+        password:{
+            type:String,
+            required:true
+        }
     },
     location:{
         type:String,
@@ -51,10 +60,15 @@ const branchSchema= new mongoose.Schema({
     staff: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'staff'
-    }]
+    }],
+    store: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'stores'
+    }
+
 
 })
 
-const branchesData= mongoose.model('Branch',branchSchema,'branches')
+const branchesData= mongoose.model('branches',branchSchema,'branches')
 
 module.exports= branchesData

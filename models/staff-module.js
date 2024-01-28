@@ -16,11 +16,6 @@ const staffSchema= new mongoose.Schema({
             return updatedAt.toLocaleDateString("en-GB"); // Adjust the locale as needed
         }
     },
-    type:{
-        type: String,
-        enum:['admin,superAdmin,general'],
-        required:true
-    },
     staffId:{
         type:Number,
         required:true
@@ -31,6 +26,6 @@ const staffSchema= new mongoose.Schema({
     }]
 })
 
-const staffData= mongoose.model('Staff',staffSchema,"staff")
+const staffData= mongoose.model('staff',staffSchema,"staff")
 
 module.exports=staffData
