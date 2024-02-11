@@ -35,15 +35,15 @@ const branchSchema= new mongoose.Schema({
             required:true
         }
     },
-    location:{
-        type:String,
-        set: function (location){
-            return location.toLowerCase()
-        },
-        required:true,
-        minlength: 2, 
-        maxlength: 50
-    },
+    // location:{
+    //     type:String,
+    //     set: function (location){
+    //         return location.toLowerCase()
+    //     },
+    //     required:true,
+    //     minlength: 2, 
+    //     maxlength: 50
+    // },
     address:{
         type:String,
         set: function (address){

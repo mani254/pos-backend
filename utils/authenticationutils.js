@@ -13,29 +13,28 @@ class AuthOperations{
             const userInStore= await storesData.findOne({'admin.username':username,'admin.password':password})
 
             if (userInStore){
-                let  response={username,password,store:userInStore.name,superAdmin:true}
+                let  response={username,password,storeId:userInStore._id,superAdmin:true}
                 return response
             }
 
             const userInBranch = await branchesData.findOne({'admin.username': username, 'admin.password': password }).populate('store')
 
             if (userInBranch){
-                let response={username,password,store:userInBranch.store.name,superAdmin:false,branch:userInBranch.name}
+                let response={username,password,storeId:userInBranch.store._id,superAdmin:false,branchName:userInBranch._id}
                 return response
             }
 
             else{
-                console.log('else in finduser')
                 throw new Error('user not found')
             }
         }
         catch(err){
-            console.log('catch in error-message finduser')
             throw new Error(`Error while finding User:  ${err.message}`)
 
         }
 
     }
+
 
 }
 
