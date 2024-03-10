@@ -16,6 +16,22 @@ const staffSchema= new mongoose.Schema({
             return updatedAt.toLocaleDateString("en-GB"); // Adjust the locale as needed
         }
     },
+    name:{
+        type:String,
+        required:true
+    },
+    phoneNo:{
+        type:Number,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    status:{
+        type:Boolean,
+        default:true,
+    },
     staffId:{
         type:Number,
         required:true
@@ -23,7 +39,11 @@ const staffSchema= new mongoose.Schema({
     sittings:[{
         type: mongoose.Schema.Types.ObjectId,
         ref:'orders'
-    }]
+    }],
+    branch:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'branches'
+    }
 })
 
 const staffData= mongoose.model('staff',staffSchema,"staff")

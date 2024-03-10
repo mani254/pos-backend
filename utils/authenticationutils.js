@@ -8,24 +8,24 @@ class AuthOperations{
     async findUser(credentials){
 
         try{
-            const {username,password}=credentials
+            const {email,password}=credentials
 
-            const userInStore= await storesData.findOne({'admin.username':username,'admin.password':password})
+            const userInStore= await storesData.findOne({'admin.email':email,'admin.password':password})
 
             if (userInStore){
-                let  response={username,password,storeId:userInStore._id,superAdmin:true}
+                let  response={username:userInStore.admin.username,password,storeId:userInStore._id,superAdmin:true,storeName:userInStore.name}
                 return response
             }
 
-            const userInBranch = await branchesData.findOne({'admin.username': username, 'admin.password': password }).populate('store')
+            const userInBranch = await branchesData.findOne({'admin.email': email, 'admin.password': password }).populate('store')
 
             if (userInBranch){
-                let response={username,password,storeId:userInBranch.store._id,superAdmin:false,branchName:userInBranch._id}
+                let response={username:userInBranch.store.admin.username,password,storeId:userInBranch.store._id,storeName:userInBranch.store.name,superAdmin:false,branchName:userInBranch._id}
                 return response
             }
 
             else{
-                throw new Error('user not found')
+                return {status:401,message:'User not found'}
             }
         }
         catch(err){

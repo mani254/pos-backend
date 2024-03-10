@@ -38,15 +38,14 @@ const productSchema=mongoose.Schema({
             type:Number,
             required:true
         }
-
     }],
+    
     sellerName:{
         type:String,
         required:true,
         set: function (sellerName){
             return sellerName.toLowerCase()
         }
-        
     },
     sellerShorcut:{
         type:String,
